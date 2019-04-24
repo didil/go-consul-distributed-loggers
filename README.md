@@ -1,4 +1,4 @@
-# Go Distributed Loggers Demo
+# Go + Consul Distributed Loggers Demo
 Simple Go + Consul Distributed System  
 
 ![Alt text](logs.png?raw=true "Demo")
