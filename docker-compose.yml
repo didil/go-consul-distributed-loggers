@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  consul:    
+    image: consul
+    command: "agent -dev -client 0.0.0.0"
+    ports:
+      - "8300:8300"
+      - "8500:8500"
+  distributed-logger:
+    build: ./node/
+    depends_on:
+      - consul
+  producer:
+    build: ./producer/
+    depends_on:
+      - distributed-logger
