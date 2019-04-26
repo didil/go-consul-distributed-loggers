@@ -32,7 +32,8 @@ func main() {
 
 		if kv != nil && kv.Session != "" {
 			// there is a leader
-			sendMsg(string(kv.Value), msgID)
+			leaderHostname := string(kv.Value)
+			sendMsg(leaderHostname, msgID)
 			msgID++
 		}
 
