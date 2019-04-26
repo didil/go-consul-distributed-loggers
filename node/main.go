@@ -24,14 +24,15 @@ func main() {
 	serviceKey := "service/distributed-logger/leader"
 	serviceName := "distributed-logger"
 
+	// build client
 	config := api.DefaultConfig()
 	config.Address = "consul:8500"
-
 	client, err := api.NewClient(config)
 	if err != nil {
 		log.Fatalf("client err: %v", err)
 	}
 
+	// create session
 	sEntry := &api.SessionEntry{
 		Name:      serviceName,
 		TTL:       ttlS,
@@ -77,13 +78,13 @@ func main() {
 					isLeader = true
 					log.Printf("I'm the leader !\n")
 				}
-				//	}
 			}
 
 			time.Sleep(time.Duration(ttl/2) * time.Second)
 		}
 	}()
 
+	// wait for SIGINT or SIGTERM, clean up and exit
 	sigCh := make(chan os.Signal)
 	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
 
