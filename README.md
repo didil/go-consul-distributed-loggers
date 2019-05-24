@@ -1,6 +1,8 @@
 # Go + Consul Distributed Loggers Demo
 Simple Go + Consul Distributed System  
 
+Article: [Building a simple Distributed System with Go & Consul](https://medium.com/@didil/building-a-simple-distributed-system-with-go-consul-39b08ffc5d2c)
+
 ![Alt text](logs.png?raw=true "Demo")
 
 *DO NOT USE IN PRODUCTION* This is a Proof of Concept and does not handle all corner cases 
